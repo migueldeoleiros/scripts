@@ -3,7 +3,8 @@ set -euo pipefail
 
 #This is a simple sript that creates a project for C programing much like an IDE does
 
-input=$(dmenu)
+echo write a name for the project:
+read input
 mkdir $input
 cd $input
 
