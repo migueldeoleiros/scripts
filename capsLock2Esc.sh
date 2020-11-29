@@ -7,3 +7,5 @@
 
 setxkbmap -option caps:escape
 setxkbmap -option 'shift:both_capslock_cancel' # when both Shift buttons are pressed simultaneously, they turn Caps Lock on. it can be switched off by pressing Shift
+
+xmodmap ~/.Xmodmap
