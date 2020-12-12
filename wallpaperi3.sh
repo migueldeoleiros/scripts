@@ -2,7 +2,7 @@
 #
 #migueldeoleiros: September 2020
 #
-#This is a simple script to change the wallpaper on my i3 config through a rofi menu
+#This is a simple script to change the Wallpaper on my i3 config through a rofi menu
 #It requires to restart i3 to see the changes
 #
 set -euo pipefail
