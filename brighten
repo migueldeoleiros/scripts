@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+# migueldeoleiros: August 2022
+# Script to change bringhtness on laptop screens
+# You may need to change the Backlightfile and MaxValue to match your device
+
+set -euo pipefail
+
+Backlightfile="/sys/class/backlight/intel_backlight/brightness"
+CurrentValue=$(cat $Backlightfile)
+MaxValue='6000'
+
+usage(){
+    echo "usage: "
+    echo " "
+    echo "Increase brightness"
+    echo "brighten --up N"
+    echo " "
+    echo "Decrease brightness"
+    echo "brighten --down N"
+    echo " "
+    echo "Show current brightness"
+    echo "brighten --current"
+}
+
+changeBrightness(){
+    if [[ $ExpectedValue -le $MaxValue && $ExpectedValue -ge 0 ]]; then
+       echo $ExpectedValue
+       echo $ExpectedValue >$Backlightfile
+    else
+       echo "error: MaxValue"
+    fi
+}
+
+if [[ $1 == "--up" ]]; then
+   ExpectedValue=$(($CurrentValue + $2))
+   changeBrightness
+
+elif [[ $1 == "--dowm" ]]; then
+   ExpectedValue=$(($CurrentValue - $2))
+   changeBrightness
+
+elif [[ $1 == "--current" ]]; then
+   echo $CurrentValue
+
+else
+   usage
+fi 
