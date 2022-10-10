@@ -42,7 +42,7 @@ else
     if [[ $1 == "--up" ]]; then
         ExpectedValue=$(($CurrentValue + $2))
         changeBrightness
-    elif [[ $1 == "--dowm" ]]; then
+    elif [[ $1 == "--down" ]]; then
         ExpectedValue=$(($CurrentValue - $2))
         changeBrightness
     elif [[ $1 == "--set" ]]; then
