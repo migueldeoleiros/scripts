@@ -21,9 +21,10 @@ usage(){
     echo " "
     echo "Set brightness to N"
     echo "brighten --set N"
+    echo "brighten --set max"
     echo " "
     echo "Show current brightness"
-    echo "brighten --current"
+    echo "brighten --status"
 }
 
 changeBrightness(){
@@ -45,9 +46,13 @@ else
         ExpectedValue=$(($CurrentValue - $2))
         changeBrightness
     elif [[ $1 == "--set" ]]; then
-        ExpectedValue=$2
+        if [[ $2 == "max" ]]; then
+            ExpectedValue=$MaxValue
+        else
+            ExpectedValue=$2
+        fi
         changeBrightness
-    elif [[ $1 == "--current" ]]; then
+    elif [[ $1 == "--status" ]]; then
         echo $CurrentValue
     else
         usage
